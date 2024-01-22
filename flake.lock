@@ -1,0 +1,39 @@
+{
+  "nodes": {
+    "laton": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-sZNZUF3AAnK+6vlP3ggt9FGt8ipXQiWKBrQU7YT+GvE=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/aslushnikov/latex-online/master/util/latexonline"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/aslushnikov/latex-online/master/util/latexonline"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1659914493,
+        "narHash": "sha256-lkA5X3VNMKirvA+SUzvEhfA7XquWLci+CGi505YFAIs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "022caabb5f2265ad4006c1fa5b1ebe69fb0c3faf",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-21.05",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "laton": "laton",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
