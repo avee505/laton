@@ -27,14 +27,14 @@
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
       # Nixpkgs instantiated for supported system types.
-      nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; overlays = [ self.overlay ]; });
+      nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; overlays = [ self.overlays.default ]; });
 
     in
 
     {
 
       # A Nixpkgs overlay.
-      overlay = final: prev: {
+      overlays.default = final: prev: {
 
         laton = with final; stdenvNoCC.mkDerivation rec {
           name = "laton-${version}";
@@ -59,11 +59,10 @@
 
       # Provide some binary packages for selected system types.
       packages = forAllSystems (system:
-        {
+        rec {
           inherit (nixpkgsFor.${system}) laton;
+          default = laton;
         });
-
-      defaultPackage = forAllSystems (system: self.packages.${system}.laton);
-
+      
     };
 }
